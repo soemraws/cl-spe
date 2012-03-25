@@ -1,0 +1,49 @@
+Read (and hopefully soon write) WinView/WinSpec SPE files using Common Lisp.
+
+CL-SPE defines the package cl-spe that contains functions to read data from
+WinView/WinSpec SPE files into Common Lisp arrays.
+
+Exported functions:
+
+* read-spe-frames file &key frame-numbers
+Return a list of CL-ARRAYs that contain the frames from FILE. FRAME-NUMBERS
+can be NIL or :all to read all frames, or a list of numbers of the desired
+frames. Frame counting starts at 0.
+
+* read-spe-frames* stream &key frame-numbers header
+Same as read-spe-frames, but works on an octet stream. If the header was
+previously read using read-spe-header or read-spe-header*, it can be provided
+to prevent another read of the header.
+
+* read-spe-frame file &key frame-number
+Return a CL-ARRAY of the first frame in FILE. FRAME-NUMBER can be set to
+a number to specify the desired frame number.
+
+* read-spe-frame* stream &key frame-number header
+Same as read-spe-frame, but works on an octet stream. If the header was
+previously read using read-spe-header or read-spe-header*, it can be provided
+to prevent another read of the header.
+
+* read-spe-header file &optional fields
+Read the header of FILE into a PLIST. When FIELDS is nil, :minimal or
+:mandatory, a minimal set of fields is read, enough to know how to interpret
+a frame. If FIELDS is :all, all the fields in the header will be read.
+Alternatively, FIELDS can be a LIST of the desired field names.
+
+* read-spe-header stream &optional fields
+Same as read-spe-header, but works on an octet stream.
+
+Not all header fields are currently known to cl-spe. Here is a list of the
+ones that are defined. The minimal fields are:
+
+:x-dimension
+:y-dimension
+:data-type
+:number-of-frames
+
+Other fields are:
+:date
+:roi
+:number-of-roi
+
+Others can be added easily, but weren't because I am too lazy.
