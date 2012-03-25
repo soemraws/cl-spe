@@ -169,4 +169,4 @@
 (defun read-spe-frames (file &key frame-numbers)
   "Return a LIST of CL-ARRAYs containing all the frames in the FILE."
   (with-open-file (stream file :element-type '(unsigned-byte 8))
-    (read-spe-frames* stream frame-numbers)))
+    (read-spe-frames* stream :frame-numbers frame-numbers)))
