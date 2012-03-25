@@ -30,8 +30,11 @@ Read the header of FILE into a PLIST. When FIELDS is nil, :minimal or
 a frame. If FIELDS is :all, all the fields in the header will be read.
 Alternatively, FIELDS can be a LIST of the desired field names.
 
-* read-spe-header stream &optional fields
+* read-spe-header* stream &optional fields
 Same as read-spe-header, but works on an octet stream.
+
+* read-spe-header-field* field stream
+Read the value of a specific field from STREAM.
 
 Not all header fields are currently known to cl-spe. Here is a list of the
 ones that are defined. The minimal fields are:
