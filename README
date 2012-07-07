@@ -48,5 +48,7 @@ Other fields are:
 :date
 :roi
 :number-of-roi
+:experiment-time-local (string, hhmmss)
+:experiment-time-utc (string, hhmmss)
 
 Others can be added easily, but weren't because I am too lazy.
