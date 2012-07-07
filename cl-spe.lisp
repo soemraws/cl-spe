@@ -75,6 +75,8 @@
     (:x-dimension :word 42)
     (:y-dimension :word 656)
     (:data-type :short 108)
+    (:experiment-time-local (:char 6) 172)
+    (:experiment-time-utc (:char 6) 179)
     (:number-of-frames :long 1446)
     (:number-of-roi :short 1510)
     (:roi (:roi-info 10) 1512)
